@@ -1,0 +1,5 @@
+these are random words and we are writing several of them
+to test our function with these words
+and read from line to line
+this is the end of our document
+la la la la la
