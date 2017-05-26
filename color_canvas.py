@@ -63,4 +63,27 @@ def paint(v, h, color, canvas):
     for line in canvas:
         print line
 
-paint(1, 1, 'r', canvas)
+def paint_recursive(v, h, new_color, canvas, start_color=None):
+    if start_color is None:
+        start_color = get_color(v, h)
+    if v < 0 or v > 4 or h < 0 or h > 4:
+        return
+    if start_color != get_color(v, h):
+        return
+    else:
+        canvas[v][h] = new_color
+        paint_recursive(v-1, h, new_color, canvas, start_color)
+        paint_recursive(v+1, h, new_color, canvas, start_color)
+        paint_recursive(v, h-1, new_color, canvas, start_color)
+        paint_recursive(v, h+1, new_color, canvas, start_color)
+
+# paint(1, 1, 'r', canvas)
+for array in canvas:
+    print array
+paint_recursive(1, 1, 'r', canvas)
+
+print "\n\n\n\n\n\n"
+for line in canvas:
+    print line
+
+
