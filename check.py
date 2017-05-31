@@ -54,22 +54,18 @@ def check(king, queen):
     row, like "D6" and "B7":
     """
 
-    if king[0] == queen[0] or king[1] == queen[1]:
+    columns = 'ABCDEFGH'
+
+    king_column = columns.index(king[0])
+    king_row = int(king[1])
+
+    queen_column = columns.index(queen[0])
+    queen_row = int(queen[1])
+
+    if king_column == queen_column or king_row == queen_row:
         return True
 
-    rows = 'ABCDEFGH'
-    columns = '12345678'
-
-    king_row = rows.index(king[0])
-    king_column = columns.index(king[1])
-
-    queen_row = rows.index(queen[0])
-    queen_column = columns.index(queen[1])
-
-    if abs(king_row - queen_row) == abs(king_column - queen_column):
-        return True
-
-    return False
+    return abs(king_row - queen_row) == abs(king_column - queen_column)
 
 
 if __name__ == '__main__':
