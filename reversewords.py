@@ -28,7 +28,6 @@ def rev(s):
     """Reverse word-order in string, preserving spaces."""
 
     words = s.split(" ")
-    # words.reverse()
     rev_string = " ".join(reversed(words))
     return rev_string
 
